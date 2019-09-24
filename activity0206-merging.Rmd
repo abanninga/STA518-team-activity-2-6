@@ -47,12 +47,13 @@ According to their website and the dataset, Denny's does not have locations outs
 
 ### Exercise 4
 
-
+Use an anti-join (filtering mutate function) to retain only the rows in the la quinta dataset that are not in the dennys dataset by state name.
 
 ### Exercise 5
 
 ```{r}
-
+dennys%>%
+  filter(!(state %in% states$abbreviation))
 ```
 
 
