@@ -43,16 +43,17 @@ Dimension's of laquinta's are 909 rows and 6 columns. Each row is the observatio
 ### Exercise 3
 
 La Quinta has locations outside of the United States in South America (e.g. Argentina, Brazil, and Chile), Africa (e.g. Ethiopia, Morocco, Nigeria, etc.), Asia (e.g China), Europe, Central America, Australia, but none in the Middle East according to their search tool.
-Denny's has locations outside the USA in Asia (e.g. Japan), Africa (e.g. United Arab Emirates), Europe (e.g. UK), Canada, the Caribbean (Curacao), and Mexico among others. 
+According to their website and the dataset, Denny's does not have locations outside the USA; but according to their wiki, Denny's has locations outside the USA in Asia (e.g. Japan), Africa (e.g. United Arab Emirates), Europe (e.g. UK), Canada, the Caribbean (Curacao), and Mexico among others. 
 
 ### Exercise 4
 
-...
 
 
 ### Exercise 5
 
-...
+```{r}
+
+```
 
 
 ### Exercise 6
