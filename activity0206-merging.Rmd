@@ -1,7 +1,7 @@
 ---
 title: "Activity 2.6 - Exploratory Data Analysis: Merging Data Sets and Visualizing Spatial Data"
-author: "INSERT TEAM NAME HERE"
-date: "INSERT TODAY'S DATE HERE"
+author: "PURPLE"
+date: "09-24-2019"
 output: 
   html_document: 
     keep_md: yes
@@ -10,6 +10,7 @@ output:
 ### Load packages
 
 ```{r load-packages, message=FALSE}
+install.packages("tidyverse")
 library(tidyverse)
 ```
 
@@ -21,15 +22,6 @@ laquinta <- read_csv("data/laquinta.csv")
 states <- read_csv("data/states.csv")
 ```
 
-```{r gdp-lifeExp-canvas, message = FALSE}
-my_gm %>% 
-  filter(year == "2007",
-         continent != "Oceania") %>% 
-  ggplot(aes(x = gdpPercap, y = lifeExp)) +
-  scale_x_log10() + 
-  geom_point() +
-  facet_wrap(~ continent)
-```
 
 ### Exercise 1
 
