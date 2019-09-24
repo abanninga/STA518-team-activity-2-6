@@ -25,18 +25,25 @@ states <- read_csv("data/states.csv")
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
-
+```{r Dennys-variables-observations}
+dim(dennys)
+View(dennys)
+names(dennys)
+```
+Dimension's of Denny's are 1643 rows and 6 columns. Each row is the observation of the physical location of each Denny's in the USA. Each variable is an aspct of either its mailing address or geospatial location.
 ### Exercise 2
 
-(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+```{r Quinta-variables-observations}
+dim(laquinta)
+View(laquinta)
+names(laquinta)
+```
+Dimension's of laquinta's are 909 rows and 6 columns. Each row is the observation of the physical location of each La Quinta's in the USA. Each variable is an aspct of either its mailing address or geospatial location
 
 ### Exercise 3
 
-...
-
+La Quinta has locations outside of the United States in South America (e.g. Argentina, Brazil, and Chile), Africa (e.g. Ethiopia, Morocco, Nigeria, etc.), Asia (e.g China), Europe, Central America, Australia, but none in the Middle East according to their search tool.
+Denny's has locations outside the USA in Asia (e.g. Japan), Africa (e.g. United Arab Emirates), Europe (e.g. UK), Canada, the Caribbean (Curacao), and Mexico among others. 
 
 ### Exercise 4
 
