@@ -90,14 +90,30 @@ laquinta
 
 
 ### Exercise 9
+```{r}
+dennys %>%
+  count(state) %>%
+  arrange(n)
+```
 
-...
+```{r}
+laquinta %>%
+  count(state) %>%
+  arrange(n)
+```
+States with the least Denny's locations are Alaska, Delaware, DC, Iowa, Louisiana, Montana, North Dakota, New Hampshire, South Dakota, Vermont, West Virginia, and Wyoming. 
 
+States with the least La Quinta locations are Alaska, Iowa, Maine, Michigan, New Hampshire, Rhode Island, South Dakota, Vermont, West Virginia, and Wyoming.
+
+This makes sense (for the most part) because most of the states are very small and/or sparsely populated.
 
 ### Exercise 10
-
-...
-
+```{r}
+dennys %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation")) %>%
+  mutate(perSqMi = n/area)
+```
 
 ### Exercise 11
 
