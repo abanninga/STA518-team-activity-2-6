@@ -72,11 +72,21 @@ dennys <- dennys %>%
 laquinta%>%
   filter(!(state %in% states$abbreviation))
 ```
-La Quintas in the dataset outside the US include ones in Mexico, Cancun, Columbia, Canada, and Honduras.
+La Quintas in the dataset outside the US include ones in Mexico, Columbia, Canada, and Honduras.
 
 ### Exercise 8
 
-...
+```{r}
+laquinta<-laquinta %>% 
+  mutate(country = case_when(
+    state %in% state.abb ~ "United States",
+    state %in% c("ON", "BC") ~ "Canada",
+    state == "ANT" ~ "Columbia",
+    state %in% c("QR", "CH","PU","NL","VE","AG","SL") ~ "Mexico",
+    state == "FM" ~ "Honduras"
+  ))
+laquinta
+```
 
 
 ### Exercise 9
