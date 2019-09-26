@@ -27,7 +27,7 @@ states <- read_csv("data/states.csv")
 
 ```{r Dennys-variables-observations}
 dim(dennys)
-View(dennys)
+head(dennys)
 names(dennys)
 ```
 Dimension's of Denny's are 1643 rows and 6 columns. Each row is the observation of the physical location of each Denny's in the USA. Each variable is an aspct of either its mailing address or geospatial location.
@@ -35,7 +35,7 @@ Dimension's of Denny's are 1643 rows and 6 columns. Each row is the observation 
 
 ```{r Quinta-variables-observations}
 dim(laquinta)
-View(laquinta)
+head(laquinta)
 names(laquinta)
 ```
 Dimension's of laquinta's are 909 rows and 6 columns. Each row is the observation of the physical location of each La Quinta's in the USA. Each variable is an aspct of either its mailing address or geospatial location
@@ -59,14 +59,20 @@ dennys%>%
 
 ### Exercise 6
 
-...
+```{r}
+dennys <- dennys %>%
+  mutate(., country = "United States")
+```
 
 
 
 ### Exercise 7
 
-...
-
+```{r la-quinta-locations-outside-the-us}
+laquinta%>%
+  filter(!(state %in% states$abbreviation))
+```
+La Quintas in the dataset outside the US include ones in Mexico, Cancun, Columbia, Canada, and Honduras.
 
 ### Exercise 8
 
