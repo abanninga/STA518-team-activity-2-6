@@ -10,7 +10,7 @@ output:
 ### Load packages
 
 ```{r load-packages, message=FALSE}
-install.packages("tidyverse")
+#install.packages("tidyverse")
 library(tidyverse)
 ```
 
@@ -112,14 +112,53 @@ This makes sense (for the most part) because most of the states are very small a
 dennys %>%
   count(state) %>%
   inner_join(states, by = c("state" = "abbreviation")) %>%
-  mutate(perSqMi = n/area)
+  mutate(per1000SqMi = (n/area)*1000) %>%
+  arrange(desc(per1000SqMi))
 ```
 
+The states with the most Denny's locations per thousand square miles are DC, Rhode Island, California, and Connecticut.
+
+```{r}
+laquinta %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation")) %>%
+  mutate(per1000SqMi = (n/area)*1000) %>%
+  arrange(desc(per1000SqMi))
+```
+
+The states with the most La Quinta locations per thousand square miles are Rhode Island, Florida, Connecticut, and Maryland.
+
 ### Exercise 11
+```{r}
+dennys <- dennys %>% 
+  mutate(establishment = "Denny's")
+laquinta <- laquinta %>% 
+  mutate(establishment = "La Quinta")
+```
 
-...
+```{r}
+dennys_laquinta <- bind_rows(dennys, laquinta)
+```
 
+```{r}
+ggplot(dennys_laquinta, mapping = aes(x = longitude, y = latitude, color = establishment)) +
+  geom_point()
+```
+
+``` {r 11}
+michigan <- dennys_laquinta %>%
+  filter(state=="MI")
+ggplot(michigan, mapping = aes(x = longitude, y = latitude, color = establishment, alpha=.01)) +
+  geom_point()
+```
+His joke somewhat holds up, in the sense that the few La Quinta locations in Michigan are all somewhat close to a Denny's.
 
 ### Exercise 12
 
-...
+``` {r twelve}
+texas <- dennys_laquinta %>%
+  filter(state=="TX")
+ggplot(texas, mapping = aes(x = longitude, y = latitude, color = establishment, alpha=.01)) +
+  geom_point()
+```
+His joke holds up less here than Michigan because there are far more La Quintas in Texas than Denny's. They are next to each other in the major cities, but where there are sparsely located La Quintas, there isn't always a Denny's nearby. The joke is still funny though.
